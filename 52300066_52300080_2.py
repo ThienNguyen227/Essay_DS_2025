@@ -1,4 +1,9 @@
 import csv
+import os
+
+# Đặt thư mục làm việc thành thư mục chứa file Python
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+print("Thư mục làm việc hiện tại:", os.getcwd())
 
 # ------ 1. Hàm đọc dữ liệu học sinh từ file csv ------
 
