@@ -28,12 +28,14 @@ def read_data_students(file_path):
 
     return students
 
-# Đọc dữ liệu từ file test.csv
+# Đọc dữ liệu từ file students.csv
 students = read_data_students('students.csv')
 
 # In dữ liệu ra để kiểm tra
 for student in students:
     print(student)
+
+
 
 # ------ 2. Định nghĩa các predicates (trả về True/False) ------
 
@@ -45,11 +47,11 @@ def is_passing(student):
 def is_high_math(student):
     return student['Math'] >= 9
 
-#2.3> Hàm kiểm tra điểm toán và điểm cs < 6
+#2.3> Hàm kiểm tra điểm toán và điểm CS < 6
 def is_struggling(student):
     return student['Math'] < 6 and student['CS'] < 6
 
-#2.4> Hàm kiểm tra điểm cs > điểm toán
+#2.4> Hàm kiểm tra điểm CS > điểm toán
 def improved_in_cs(student):
     return student['CS'] > student['Math']
 
@@ -71,7 +73,7 @@ def all_students_have_score_math_above_3(students):
 def exists_a_student_scored_math_above_9(students):
     return any(student['Math'] > 9 for student in students)
 
-# 4. Tồn tại ít nhất một học sinh có điểm cs > điểm toán
+# 4. Tồn tại ít nhất một học sinh có điểm CS > điểm toán
 def exists_a_student_improved_in_cs(students):
     return any(improved_in_cs(student) for student in students)
 
@@ -111,8 +113,8 @@ def negation_of_all_students_have_score_math_above_3(students):
 def negation_of_exists_a_student_scored_math_above_9(students):
     return all(student['Math'] <= 9 for student in students)
 
-# Tồn tại ít nhất một học sinh có điểm cs > điểm toán
-# -> 10. Phủ định: Với mọi học học sinh có điểm cs <= điểm toán 
+# Tồn tại ít nhất một học sinh có điểm CS > điểm toán
+# -> 10. Phủ định: Với mọi học học sinh có điểm CS <= điểm toán 
 def negation_of_exists_a_student_improved_in_cs(students):
     return all(not improved_in_cs(student) for student in students)
 
@@ -131,34 +133,17 @@ def negation_of_all_students_below_6_math_exists_a_subject_above_6(students):
 print()
 # In kết quả kiểm tra các hàm
 print("1. Tất cả học sinh đã pass tất cả các môn học: ", all_students_passed_all_subjects(students))
-print("2. Tất cả học sinh có điểm toán trên 3: ", all_students_have_score_math_above_3(students))
-print("3. Tồn tại ít nhất một học sinh có điểm toán trên 9: ", exists_a_student_scored_math_above_9(students))
+print("2. Tất cả học sinh có điểm toán > 3: ", all_students_have_score_math_above_3(students))
+print("3. Tồn tại ít nhất một học sinh có điểm toán > 9: ", exists_a_student_scored_math_above_9(students))
 print("4. Tồn tại ít nhất một học sinh có điểm CS > điểm toán: ", exists_a_student_improved_in_cs(students))
-print("5. Với mọi học sinh, tồn tại ít nhất một môn học trên 6 điểm: ", all_students_exists_a_subject_above_6(students))
-print("6. Với mọi học sinh có điểm toán dưới 6, tồn tại ít nhất một môn học khác trên 6 điểm: ", all_students_below_6_math_exists_a_subject_above_6(students))
+print("5. Với mọi học sinh, tồn tại ít nhất một môn học > 6 điểm: ", all_students_exists_a_subject_above_6(students))
+print("6. Với mọi học sinh có điểm toán < 6, tồn tại ít nhất một môn học khác > 6 điểm: ", all_students_below_6_math_exists_a_subject_above_6(students))
 
 print()
 # Kiểm tra phủ định
 print("7. Phủ định: Tồn tại ít nhất một học sinh không pass tất cả các môn học: ", negation_of_all_students_passed_all_subjects(students))
 print("8. Phủ định: Tồn tại ít nhất một học sinh có điểm toán <= 3: ", negation_of_all_students_have_score_math_above_3(students))
 print("9. Phủ định: Với mọi học học sinh có điểm toán <= 9: ", negation_of_exists_a_student_scored_math_above_9(students))
-print("10. Phủ định: Với mọi học học sinh có điểm cs <= điểm toán: ", negation_of_exists_a_student_improved_in_cs(students))
+print("10. Phủ định: Với mọi học học sinh có điểm CS <= điểm toán: ", negation_of_exists_a_student_improved_in_cs(students))
 print("11. Phủ định: Tồn tại ít nhất một học sinh, với mọi môn học <= 6 điểm: ", negation_of_all_students_exists_a_subject_above_6(students))
-print("12. Phủ định: Tồn tại ít nhất một học sinh có điểm toán >= 6, với mọi môn học khác <= 6 điểm: ", negation_of_all_students_below_6_math_exists_a_subject_above_6(students))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("12. Phủ định: Tồn tại ít nhất một học sinh có điểm toán < 6, với mọi môn học khác <= 6 điểm: ", negation_of_all_students_below_6_math_exists_a_subject_above_6(students))
