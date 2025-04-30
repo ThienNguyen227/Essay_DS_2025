@@ -124,9 +124,9 @@ def negation_of_all_students_exists_a_subject_above_6(students):
     return any(all(score <= 6 for score in [student['Math'], student['CS'], student['Eng']]) for student in students)
 
 # Với mọi học sinh dưới 6(<6) điểm toán, thì tồn tại ít nhất một môn học khác trên 6 điểm(>6)
-# -> 12.Phủ định: Tồn tại ít nhất một học sinh >= 6 điểm toán, với mọi môn học khác <= 6 điểm
+# -> 12.Phủ định: Tồn tại ít nhất một học sinh dưới 6 (<6) điểm toán, với mọi môn học khác <= 6 điểm
 def negation_of_all_students_below_6_math_exists_a_subject_above_6(students):
-    return any(student['Math'] >= 6 and all(score <= 6 for score in [student['CS'], student['Eng']]) for student in students) 
+    return any(student['Math'] < 6 and all(score <= 6 for score in [student['CS'], student['Eng']]) for student in students) 
 
 print()
 # In kết quả kiểm tra các hàm
